@@ -41,7 +41,8 @@ On the command prompt run the following commands
 
 # BUG
 
-Edit YOUR_PROJECT_PATH\node_modules\react-native-navigation\android\app\build.gradle file.
+** Edit YOUR_PROJECT_PATH\node_modules\react-native-navigation\android\app\build.gradle file. **
+* Convert the following code to a comment line.
 
 ```
 testOptions { 
