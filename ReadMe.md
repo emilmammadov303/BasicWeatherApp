@@ -43,7 +43,8 @@ On the command prompt run the following commands
 
 Edit YOUR_PROJECT_PATH\node_modules\react-native-navigation\android\app\build.gradle file.
 
-` testOptions { 
+```
+testOptions { 
         unitTests.all { t ->
             reports {
                 html.enabled true
@@ -62,4 +63,5 @@ Edit YOUR_PROJECT_PATH\node_modules\react-native-navigation\android\app\build.gr
             }
         }
     }
-} `
+} 
+```
