@@ -43,43 +43,23 @@ On the command prompt run the following commands
 
 Edit YOUR_PROJECT_PATH\node_modules\react-native-navigation\android\app\build.gradle file.
 
-<code> testOptions { </code>
+<code> testOptions { 
+        unitTests.all { t ->
+            reports {
+                html.enabled true
+            }
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+            }
+            afterSuite { desc, result ->
+                if (!desc.parent) { // will match the outermost suite
+                    def output = "      ${result.resultType} (${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)     "
+                    def repeatLength = output.length()
+                    println '\n' + ('-' * repeatLength) + '\n' + output + '\n' + ('-' * repeatLength) + '\n'
 
-<code>        unitTests.all { t ->  </code>
-
-<code>            reports { </code>
-
-<code>                html.enabled true </code>
-
-<code>            } </code>
-
-<code>            testLogging { </code>
-
-<code>                events "passed", "skipped", "failed", "standardOut", "standardError" </code>
-
-<code>            } </code>
-
-<code>            afterSuite { desc, result -> </code>
-
-<code>                if (!desc.parent) { // will match the outermost suite </code>
-
-<code>                    def output = "      ${result.resultType} (${result.successfulTestCount} successes, ${result.failedTestCount} failures,
- ${result.skippedTestCount} skipped)     " </code>
- 
-<code>                    def repeatLength = output.length() </code>
-
-<code>                    println '\n' + ('-' * repeatLength) + '\n' + output + '\n' + ('-' * repeatLength) + '\n' </code>
-
-<code> </code>
-
-<code>                    println "see report at file://${t.reports.html.destination}/index.html" </code>
-
-<code>                } </code>
-
-<code>            } </code>
-
-<code>        } </code>
-
-<code>    } </code>
-
-<code> } </code>
+                    println "see report at file://${t.reports.html.destination}/index.html"
+                }
+            }
+        }
+    }
+} </code>
