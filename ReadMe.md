@@ -16,7 +16,9 @@
 On the command prompt run the following commands
 
 <code> $ git clone https://github.com/altuga/sliconf-mobil.git </code>
+
 <code> $ npm install </code>
+
 <code> $ react-native link </code>
 
 ## 3. Simulate for Android
@@ -26,9 +28,13 @@ On the command prompt run the following commands
 * Run the following command in your terminal.
 
 <code> cd android </code>
+
 <code> gradlew clean --debug </code>
+
 <code> gradlew clean </code>
+
 <code> cd .. </code>
+
 <code> react-native run-android </code>
 
 * If the application does not work on simulator check BUG title in this ReadMe.
@@ -38,22 +44,42 @@ On the command prompt run the following commands
 Edit YOUR_PROJECT_PATH\node_modules\react-native-navigation\android\app\build.gradle file.
 
 <code> testOptions { </code>
+
 <code>        unitTests.all { t ->  </code>
+
 <code>            reports { </code>
+
 <code>                html.enabled true </code>
+
 <code>            } </code>
+
 <code>            testLogging { </code>
+
 <code>                events "passed", "skipped", "failed", "standardOut", "standardError" </code>
+
 <code>            } </code>
+
 <code>            afterSuite { desc, result -> </code>
+
 <code>                if (!desc.parent) { // will match the outermost suite </code>
-<code>                    def output = "      ${result.resultType} (${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)     " </code>
+
+<code>                    def output = "      ${result.resultType} (${result.successfulTestCount} successes, ${result.failedTestCount} failures,
+ ${result.skippedTestCount} skipped)     " </code>
+ 
 <code>                    def repeatLength = output.length() </code>
+
 <code>                    println '\n' + ('-' * repeatLength) + '\n' + output + '\n' + ('-' * repeatLength) + '\n' </code>
+
 <code> </code>
+
 <code>                    println "see report at file://${t.reports.html.destination}/index.html" </code>
+
 <code>                } </code>
+
 <code>            } </code>
+
 <code>        } </code>
+
 <code>    } </code>
+
 <code> } </code>
