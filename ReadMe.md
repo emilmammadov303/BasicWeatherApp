@@ -15,8 +15,8 @@
 
 On the command prompt run the following commands
 
-<code> $ git clone https://github.com/altuga/sliconf-mobil.git 
+<code> $ git clone https://github.com/altuga/sliconf-mobil.git </code>
 
-$ npm install
+<code> $ npm install </code>
 
-$ react-native link </code>
+<code> $ react-native link </code> 
